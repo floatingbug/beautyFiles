@@ -30,6 +30,8 @@ import {device} from "@/composables/device.js";
 			</div>
 		</div>
 	</div>
+
+	<Button as="router-link" to="/customer-search">search</Button>
 </template>   
 
 
