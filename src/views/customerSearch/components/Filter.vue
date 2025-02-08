@@ -1,5 +1,13 @@
 <script setup>
-import {reactive} from "vue";
+import {reactive, ref} from "vue";
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
+import FloatLabel from 'primevue/floatlabel';
+import InputText from 'primevue/inputtext';
+import buttonData from "../data/buttonData.js";
+import {device} from "@/composables/device.js";
+
+console.log(device);
 
 
 const emit = defineEmits();
@@ -10,6 +18,8 @@ const filterInput = reactive({
 	age: null,
 	birthdaySoon: false,
 });
+
+const selectButtons = ref(buttonData);
 
 
 function search(){
@@ -22,54 +32,151 @@ function search(){
 	});
 }
 
+function handleSelectButtonClick(button){
+	button.isActive = !button.isActive;
+}
 </script>
 
 
 <template>    
-	<div class="filter-content">
+	<header>
 		<h1>Kunden Suche</h1>
+	</header>
 
+	<div class="filter-content">
+
+		<Divider :layout="device === 'mobile' || device === 'tablet' ? 'horizontal' : 'vertical'"></Divider>
+
+		<!-- input fields -->
 		<div class="input-container">
-			<label for="name">Name</label>
-			<input id="name" type="name" v-model="filterInput.name">
+			<InputGroup>
+				<InputGroupAddon>
+					<i class="pi pi-user"></i>
+				</InputGroupAddon>
+			
+				<FloatLabel variant="in">
+					<InputText id="name"></InputText>
+					<label for="name">Name</label>
+				</FloatLabel>
+			</InputGroup>
+			
+			<InputGroup>
+				<InputGroupAddon>
+					<i class="pi pi-calendar"></i>
+				</InputGroupAddon>
+			
+				<FloatLabel variant="in">
+					<InputText id="birthday"></InputText>
+					<label for="birthday">Geburtstag</label>
+				</FloatLabel>
+			</InputGroup>
 		</div>
 		
-		<div class="input-container">
-			<label for="age">Alter</label>
-			<input id="age" type="number" v-model="filterInput.age">
+		<Divider :layout="device === 'mobile' || device === 'tablet' ? 'horizontal' : 'vertical'"></Divider>
+
+		<!-- button selects -->
+		<div class="button-select-container">
+			<Button 
+				v-for="(button, index) in selectButtons" 
+				:class="{'button-active': button.isActive}" 
+				severity="info"
+				rounded
+				:outlined="!button.isActive"
+				@click="handleSelectButtonClick(button)"
+				>
+					{{button.label}}
+			</Button>
 		</div>
 
-		<div class="radio-button">
-			<label for="birthday">Bald Geburtstag</label>
-			<input type="checkbox" v-model="filterInput.birthdaySoon">
-		</div>
+		<Divider :layout="device === 'mobile' || device === 'tablet' ? 'horizontal' : 'vertical'"></Divider>
 
-		<button @click="search">Suche</button>
+		<!-- submit button -->
+		<div class="submit-button-container">
+			<Button>Suche</Button>
+		</div>
 	</div>
 </template>   
 
 
 <style scoped>
+header {
+	h1 {
+		margin-top: 10%;
+	}
+}
 .filter-content {
 	width: 90%;
+	max-width: 500px;
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
-	padding-top: 1rem;
+	text-align: center;
 }
 
 .input-container {
 	display: flex;
 	flex-direction: column;
+	gap: 1rem;
+	margin: 10% 0;
+}
 
-	input {
-		font-size: 1rem;
+.button-select-container {
+	display: flex;
+	margin: 10% 0;
+
+	.p-button {
+		padding: 0.2rem;
 	}
 }
 
-.radio-button {
+.submit-button-container {
 	display: flex;
-	align-items: center;
-	gap: 1rem;
+	margin: 10% 0;
+
+	.p-button {
+		width: 100%;
+	}
+}
+
+@media(min-width: 480px) {
+	header {
+		h1 {
+			font-size: 3rem;
+		}
+	}
+}
+
+@media(min-width: 768px) {
+	header {
+		h1 {
+			font-size: 4rem;
+		}
+	}
+
+	.input-container {
+		margin-top: 20%;
+	}
+}
+
+@media(min-width: 1024px) {
+	.filter-content {
+		max-width: none;
+		flex-direction: row;
+		justify-content: center;
+		margin: 2rem 0;
+	}
+
+	.input-container {
+		flex-direction: row;
+		margin: 0;
+	}
+
+	.button-select-container {
+		align-items: center;
+		margin: 0;
+	}
+
+	.submit-button-container {
+		margin: 0;
+	}
 }
 </style>

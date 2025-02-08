@@ -30,3 +30,4 @@ coverage
 *.tsbuildinfo
 
 .env
+vite.config.js
