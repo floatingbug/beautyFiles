@@ -7,8 +7,6 @@ import InputText from 'primevue/inputtext';
 import buttonData from "../data/buttonData.js";
 import {device} from "@/composables/device.js";
 
-console.log(device);
-
 
 const emit = defineEmits();
 
@@ -45,7 +43,7 @@ function handleSelectButtonClick(button){
 
 	<div class="filter-content">
 
-		<Divider :layout="device === 'mobile' || device === 'tablet' ? 'horizontal' : 'vertical'"></Divider>
+		<Divider></Divider>
 
 		<!-- input fields -->
 		<div class="input-container">
@@ -56,23 +54,45 @@ function handleSelectButtonClick(button){
 			
 				<FloatLabel variant="in">
 					<InputText id="name"></InputText>
-					<label for="name">Name</label>
+					<label for="name">Name oder Kundennummer</label>
 				</FloatLabel>
 			</InputGroup>
 			
 			<InputGroup>
 				<InputGroupAddon>
-					<i class="pi pi-calendar"></i>
+					<i class="pi pi-home"></i>
 				</InputGroupAddon>
 			
 				<FloatLabel variant="in">
-					<InputText id="birthday"></InputText>
-					<label for="birthday">Geburtstag</label>
+					<InputText id="lokation"></InputText>
+					<label for="lokation">Ort oder Postleitzahl</label>
+				</FloatLabel>
+			</InputGroup>
+			
+			<InputGroup>
+				<InputGroupAddon>
+					<i class="pi pi-home"></i>
+				</InputGroupAddon>
+			
+				<FloatLabel variant="in">
+					<InputText id="lokation"></InputText>
+					<label for="lokation">Ort oder Postleitzahl</label>
+				</FloatLabel>
+			</InputGroup>
+			
+			<InputGroup>
+				<InputGroupAddon>
+					<i class="pi pi-home"></i>
+				</InputGroupAddon>
+			
+				<FloatLabel variant="in">
+					<InputText id="lokation"></InputText>
+					<label for="lokation">Ort oder Postleitzahl</label>
 				</FloatLabel>
 			</InputGroup>
 		</div>
 		
-		<Divider :layout="device === 'mobile' || device === 'tablet' ? 'horizontal' : 'vertical'"></Divider>
+		<Divider></Divider>
 
 		<!-- button selects -->
 		<div class="button-select-container">
@@ -80,7 +100,6 @@ function handleSelectButtonClick(button){
 				v-for="(button, index) in selectButtons" 
 				:class="{'button-active': button.isActive}" 
 				severity="info"
-				rounded
 				:outlined="!button.isActive"
 				@click="handleSelectButtonClick(button)"
 				>
@@ -88,7 +107,7 @@ function handleSelectButtonClick(button){
 			</Button>
 		</div>
 
-		<Divider :layout="device === 'mobile' || device === 'tablet' ? 'horizontal' : 'vertical'"></Divider>
+		<Divider></Divider>
 
 		<!-- submit button -->
 		<div class="submit-button-container">
@@ -159,9 +178,7 @@ header {
 
 @media(min-width: 1024px) {
 	.filter-content {
-		max-width: none;
-		flex-direction: row;
-		justify-content: center;
+		max-width: 1050px;
 		margin: 2rem 0;
 	}
 
