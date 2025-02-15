@@ -26,12 +26,10 @@ import {device} from "@/composables/device.js";
 					<Button class="sign-up-link" as="router-link" to="/sign-up" variant="text" severity="info">Registrieren</Button>
 				</p>
 				
-				<Button>Anmelden</Button>
+				<Button class="sign-in-link" as="router-link" to="/sign-in">Anmelden</Button>
 			</div>
 		</div>
 	</div>
-
-	<Button as="router-link" to="/customer-search">search</Button>
 </template>   
 
 
@@ -66,6 +64,7 @@ import {device} from "@/composables/device.js";
 }
 
 .sign-content {
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 
@@ -75,6 +74,11 @@ import {device} from "@/composables/device.js";
 
 	.sign-up-link {
 		padding: 0;
+	}
+
+	.sign-in-link {
+		text-decoration: none;
+		margin-top: 50%;
 	}
 
 	Button:last-of-type {

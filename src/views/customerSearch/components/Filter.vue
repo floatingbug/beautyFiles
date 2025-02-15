@@ -54,7 +54,7 @@ function handleSelectButtonClick(button){
 			
 				<FloatLabel variant="in">
 					<InputText id="name"></InputText>
-					<label for="name">Name oder Kundennummer</label>
+					<label for="name">Kd. oder Name</label>
 				</FloatLabel>
 			</InputGroup>
 			

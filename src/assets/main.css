@@ -24,4 +24,5 @@ body {
 	border-radius: var(--p-border-radius-lg);
 	border: 1px solid var(--p-content-border-color);
 	background-color: var(--card-bg-glass);
+	backdrop-filter: blur(8px);
 }
