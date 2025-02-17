@@ -13,8 +13,10 @@ const emit = defineEmits();
 
 const filterInput = reactive({
 	name: "",
-	age: null,
-	birthdaySoon: false,
+	vorname: "",
+	wohnort: "",
+	alter: null,
+	baldGeburtstag: null,
 });
 
 const selectButtons = ref(buttonData);
@@ -24,8 +26,10 @@ function search(){
 	emit("filter:action", {
 		data: {
 			name: filterInput.name,
-			age: filterInput.age,
-			birthdaySoon: filterInput.birthdaySoon,
+			vorname: filterInput.vorname,
+			wohnort: filterInput.wohnort,
+			alter: filterInput.alter,
+			baldGeburtstag: filterInput.baldGeburtstag,
 		},
 	});
 }
@@ -53,8 +57,19 @@ function handleSelectButtonClick(button){
 				</InputGroupAddon>
 			
 				<FloatLabel variant="in">
-					<InputText id="name"></InputText>
-					<label for="name">Kd. oder Name</label>
+					<InputText id="name" v-model="filterInput.name"></InputText>
+					<label for="name">Name</label>
+				</FloatLabel>
+			</InputGroup>
+			
+			<InputGroup>
+				<InputGroupAddon>
+					<i class="pi pi-user"></i>
+				</InputGroupAddon>
+			
+				<FloatLabel variant="in">
+					<InputText id="firstName" v-model="filterInput.vorname"></InputText>
+					<label for="firstName">Vorname</label>
 				</FloatLabel>
 			</InputGroup>
 			
@@ -64,8 +79,8 @@ function handleSelectButtonClick(button){
 				</InputGroupAddon>
 			
 				<FloatLabel variant="in">
-					<InputText id="lokation"></InputText>
-					<label for="lokation">Ort oder Postleitzahl</label>
+					<InputText id="lokation" v-model="filterInput.wohnort"></InputText>
+					<label for="lokation">Wohnort</label>
 				</FloatLabel>
 			</InputGroup>
 			
@@ -75,22 +90,10 @@ function handleSelectButtonClick(button){
 				</InputGroupAddon>
 			
 				<FloatLabel variant="in">
-					<InputText id="lokation"></InputText>
-					<label for="lokation">Ort oder Postleitzahl</label>
+					<InputText id="age" v-model="filterInput.alter"></InputText>
+					<label for="age">Alter</label>
 				</FloatLabel>
 			</InputGroup>
-			
-			<InputGroup>
-				<InputGroupAddon>
-					<i class="pi pi-home"></i>
-				</InputGroupAddon>
-			
-				<FloatLabel variant="in">
-					<InputText id="lokation"></InputText>
-					<label for="lokation">Ort oder Postleitzahl</label>
-				</FloatLabel>
-			</InputGroup>
-		</div>
 		
 		<Divider></Divider>
 
@@ -103,7 +106,7 @@ function handleSelectButtonClick(button){
 				:outlined="!button.isActive"
 				@click="handleSelectButtonClick(button)"
 				>
-					{{button.label}}
+				{{button.label}}
 			</Button>
 		</div>
 
@@ -111,8 +114,9 @@ function handleSelectButtonClick(button){
 
 		<!-- submit button -->
 		<div class="submit-button-container">
-			<Button>Suche</Button>
+			<Button @click="search">Suche</Button>
 		</div>
+	</div>
 	</div>
 </template>   
 
@@ -120,7 +124,7 @@ function handleSelectButtonClick(button){
 <style scoped>
 header {
 	h1 {
-		margin-top: 10%;
+		margin-top: 5rem;
 	}
 }
 .filter-content {

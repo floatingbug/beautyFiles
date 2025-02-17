@@ -10,7 +10,7 @@ import {device} from "@/composables/device.js";
 				<h1>Wilkommen auf Beauty-Files</h1>
 				
 				<p>
-					Elit reiciendis veniam porro eos quia molestiae veritatis? Vel commodi tempore quo accusantium tenetur Voluptatibus aut quo quia beatae quos, at beatae Sit esse saepe ipsum debitis odit quisquam! Debitis
+					Elit reiciendis veniam porro eos quia molestiae veritatis? Vel commodi tempore quo accusantium tenetur Voluptatibus aut quo quia beatae quos
 				</p>
 			</div>
 		</div>
@@ -65,6 +65,7 @@ import {device} from "@/composables/device.js";
 
 .sign-content {
 	height: 100%;
+	position: relative;
 	display: flex;
 	flex-direction: column;
 
@@ -74,15 +75,14 @@ import {device} from "@/composables/device.js";
 
 	.sign-up-link {
 		padding: 0;
+		margin-top: 0.2rem;
 	}
 
 	.sign-in-link {
+		width: 100%;
+		position: absolute;
+		bottom: 0rem;
 		text-decoration: none;
-		margin-top: 50%;
-	}
-
-	Button:last-of-type {
-		margin-top: 10%;
 	}
 }
 
@@ -101,7 +101,6 @@ import {device} from "@/composables/device.js";
 		}
 		
 		Button:last-of-type {
-			margin-top: 20%;
 		}
 	}
 }

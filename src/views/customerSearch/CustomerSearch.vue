@@ -1,16 +1,16 @@
 <script setup>
 import {ref} from "vue";
 import Filter from "./components/Filter.vue";
-import {getCustomer} from "@/helper/getCustomer.js";
+import {getCustomerId} from "@/api/getCustomerId.js";
 
 
 const customer = ref([]);
 
 
 async function handleFilterEvent(event){
-	customer.value = await getCustomer(event.data);
+	customer.value = await getCustomerId(event.data);
 
-	console.log(customer.value);
+	console.log("--->", customer.value);
 }
 </script>
 
