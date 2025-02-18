@@ -14,7 +14,7 @@ async function handleFilterEvent(event){
 	if(!result.success) return errors.value = result.errors;
 
 	customerArray.value = result.customer;
-	console.log(customerArray.value);
+
 }
 </script>
 
