@@ -11,6 +11,7 @@ import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
 import FloatLabel from 'primevue/floatlabel';
 import InputText from 'primevue/inputtext';
+import InputNumber from 'primevue/inputnumber';
 
 
 const app = createApp(App)
@@ -34,6 +35,7 @@ app.component("InputGroup", InputGroup);
 app.component("InputGroupAddon", InputGroupAddon);
 app.component("FloatLabel", FloatLabel);
 app.component("InputText", InputText);
+app.component("InputNumber", InputNumber);
 
 
 app.mount('#app')

@@ -15,7 +15,8 @@ const props = defineProps({
 		</InputGroupAddon>
 
 		<FloatLabel variant="on">
-			<InputText :id="inputFieldData.id" v-model="inputFieldData.input"></InputText>
+			<InputText v-if="inputFieldData.type === 'string'" :id="inputFieldData.id" v-model="inputFieldData.input"></InputText>
+			<InputNumber v-else :id="inputFieldData.id" v-model="inputFieldData.input"></InputNumber>
 			<label :for="inputFieldData.id">{{inputFieldData.label}}</label>
 		</FloatLabel>
 	</InputGroup>

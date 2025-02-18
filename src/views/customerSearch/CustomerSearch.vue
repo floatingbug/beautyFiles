@@ -4,13 +4,17 @@ import Filter from "./components/Filter.vue";
 import {getCustomerId} from "@/api/getCustomerId.js";
 
 
-const customer = ref([]);
+const customerArray = ref([]);
+const errors = ref([]);
 
 
 async function handleFilterEvent(event){
-	customer.value = await getCustomerId(event.data);
+	const result = await getCustomerId(event.data);
 
-	console.log("--->", customer.value);
+	if(!result.success) return errors.value = result.errors;
+
+	customerArray.value = result.customer;
+	console.log(customerArray.value);
 }
 </script>
 
@@ -18,6 +22,26 @@ async function handleFilterEvent(event){
 <template>    
 	<div class="filter-container">
 		<Filter @filter:action="handleFilterEvent"></Filter>
+	</div>
+
+	<div class="customer-container">
+		<div class="customer-content">
+			<Button class="customer" 
+				v-for="(customer, index) in customerArray"
+				as="router-link"
+				:to="`/customer-profile?id=${customer.customerId}`"
+			>
+				<div class="customer-data">
+					<span>Vorname: </span> 
+					{{customer.vorname}}
+				</div>
+				
+				<div class="customer-data">
+					<span>Name: </span> 
+					{{customer.name}}
+				</div>
+			</Button>
+		</div>
 	</div>
 </template>   
 
@@ -29,4 +53,30 @@ async function handleFilterEvent(event){
 	flex-direction: column;
 	align-items: center;
 }
+
+.customer-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.customer-content {
+	width: 90%;
+	height: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.customer {
+	width: 100%;
+	display: flex;
+	gap: 1rem;
+	text-decoration: none;
+}
+
 </style>
