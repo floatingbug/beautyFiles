@@ -14,7 +14,6 @@ async function handleFilterEvent(event){
 	if(!result.success) return errors.value = result.errors;
 
 	customerArray.value = result.customer;
-
 }
 </script>
 
