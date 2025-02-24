@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from "vue";
-import Filter from "./components/Filter.vue";
+import Filter from "../components/CustomerFilter.vue";
 import {getCustomerId} from "@/api/getCustomerId.js";
 
 

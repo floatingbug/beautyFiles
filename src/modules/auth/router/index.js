@@ -3,7 +3,7 @@ import SignInModule from "../signIn/SignInModule.vue";
 import SignUpModule from "../signUp/SignUpModule.vue";
 
 
-export default = [
+export default [
 	{
 		path: "/authentication",
 		component: AuthLayout,
@@ -14,7 +14,7 @@ export default = [
 			},
 			{
 				path: "sign-up",
-				component: SignInModule,
+				component: SignUpModule,
 			},
 		],
 	},

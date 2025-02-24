@@ -2,7 +2,7 @@
 import {onMounted} from "vue";
 import { RouterLink, RouterView } from 'vue-router'
 import {device, setDevice} from "@/composables/device.js";
-import TheNavbar from "@/components/navbar/TheNavbar.vue";
+import TheNavbar from "@/modules/navbar/TheNavbar.vue";
 
 
 onMounted(() => {

@@ -1,22 +1,27 @@
 <script setup>
-import Hero from "./components/Hero.vue";
+import Hero from "../hero/Hero.vue";
 </script>
 
 
 <template>
-	<div class="hero-container">
-		<Hero></Hero>
+	<div class="home-layout">
+		<div class="hero-container">
+			<Hero></Hero>
+		</div>
 	</div>
 </template>
 
 
 <style scoped>
-.hero-container {
-	height: 100dvh;
+.home-layout {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 1rem;
+}
+
+.hero-container {
+	margin-top: 10rem;
 }
 </style>

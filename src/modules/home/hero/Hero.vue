@@ -23,10 +23,10 @@ import {device} from "@/composables/device.js";
 				
 				<p>
 					Du hast noch kein Konto?
-					<Button class="sign-up-link" as="router-link" to="/sign-up" variant="text" severity="info">Registrieren</Button>
+					<Button class="sign-up-link" as="router-link" to="/authentication/sign-up" variant="text" severity="info">Registrieren</Button>
 				</p>
 				
-				<Button class="sign-in-link" as="router-link" to="/sign-in">Anmelden</Button>
+				<Button class="sign-in-link" as="router-link" to="/authentication/sign-in">Anmelden</Button>
 			</div>
 		</div>
 	</div>
