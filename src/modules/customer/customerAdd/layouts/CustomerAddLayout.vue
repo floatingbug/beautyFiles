@@ -2,8 +2,8 @@
 import {ref} from "vue";
 import {useRouter} from "vue-router";
 import InputField from "@/components/InputField.vue";
-import inputFieldData from "./data/inputFieldData.js";
-import {addCustomer} from "./api/addCustomer.js";
+import inputFieldData from "../data/inputFieldData.js";
+import {addCustomer} from "../api/addCustomer.js";
 
 
 const router = useRouter();
