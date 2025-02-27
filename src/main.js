@@ -12,6 +12,8 @@ import InputGroupAddon from 'primevue/inputgroupaddon';
 import FloatLabel from 'primevue/floatlabel';
 import InputText from 'primevue/inputtext';
 import InputNumber from 'primevue/inputnumber';
+import ToastService from 'primevue/toastservice';
+
 
 
 const app = createApp(App)
@@ -27,6 +29,7 @@ app.use(PrimeVue, {
 });
 
 app.use(router)
+app.use(ToastService);
 
 
 app.component("Divider", Divider);
@@ -36,6 +39,5 @@ app.component("InputGroupAddon", InputGroupAddon);
 app.component("FloatLabel", FloatLabel);
 app.component("InputText", InputText);
 app.component("InputNumber", InputNumber);
-
 
 app.mount('#app')

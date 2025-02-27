@@ -3,6 +3,7 @@ import {onMounted} from "vue";
 import { RouterLink, RouterView } from 'vue-router'
 import {device, setDevice} from "@/composables/device.js";
 import TheNavbar from "@/modules/navbar/TheNavbar.vue";
+import Toast from 'primevue/toast';
 
 
 onMounted(() => {
@@ -13,6 +14,7 @@ onMounted(() => {
 </script>
 
 <template>
+	<Toast />
 	<TheNavbar></TheNavbar>
 
   <RouterView />

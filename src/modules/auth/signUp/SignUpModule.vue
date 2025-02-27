@@ -1,7 +1,7 @@
 <script setup>
 import {ref, reactive} from "vue";
 import {useRouter} from "vue-router";
-import {signUp} from "./helper/signUp.js";
+import {signUp} from "./api/signUp.js";
 
 
 const router = useRouter();

@@ -1,23 +1,23 @@
 <script setup>
-import {ref, onMounted} from "vue";
+import {ref} from "vue";
 import {useRoute} from "vue-router";
-import CustomerCoreData from "./components/CustomerCoreData.vue";
+import CustomerCoreData from "../customerCoreData/CustomerCoreData.vue";
+import CustomerSkinProperties from "../customerSkinProperties/CustomerSkinProperties.vue";
 
 
 const route = useRoute();
 const errors = ref([]);
+const customerId = ref(route.query.id);
 
 
-onMounted(async () => {
-	const customerId = route.query.id;
-});
 </script>
 
 
 <template>    
 	<div class="container">
 		<div class="content">
-			<CustomerCoreData :coreDataInput="customerCoreData"></CustomerCoreData>
+			<CustomerCoreData :customerId="customerId"></CustomerCoreData>
+			<CustomerSkinProperties :customerId="customerId"></CustomerSkinProperties>
 		</div>
 
 		<div v-if="errors.length > 0" class="errors">
@@ -41,6 +41,7 @@ onMounted(async () => {
 
 .content {
 	width: 80%;
+	max-width: 1000px;
 	height: 80%;
 	display: flex;
 	flex-direction: column;

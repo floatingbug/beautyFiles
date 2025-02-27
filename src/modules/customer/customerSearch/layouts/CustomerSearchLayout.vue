@@ -1,15 +1,24 @@
 <script setup>
-import {ref} from "vue";
+import {ref, onMounted} from "vue";
 import Filter from "../components/CustomerFilter.vue";
-import {getCustomerId} from "@/api/getCustomerId.js";
+import {getCustomer} from "@/api/getCustomer.js";
 
 
 const customerArray = ref([]);
 const errors = ref([]);
 
 
+onMounted(async () => {
+	const result = await getCustomer();
+
+	if(!result.success) return errors.value = result.errors;
+
+	customerArray.value = result.customer;
+});
+
+
 async function handleFilterEvent(event){
-	const result = await getCustomerId(event.data);
+	const result = await getCustomer(event.data);
 
 	if(!result.success) return errors.value = result.errors;
 

@@ -1,17 +1,19 @@
 import {useFetch} from "@/composables/useFetch.js";
 
 
-export async function getCoreData(customerId){
+export async function getData(param){
+	const {path} = param;
 	const jwt = localStorage.getItem("jwt");
-	const path = `/get-core-data?customerId=${customerId}`;
 	const options = {
-		method: "get",
+		method: "GET",
 		headers: {
-			"authorization": jwt,
+			authorization: jwt,
 		},
-	};
+	}
+
 
 	const result = await useFetch(path, options);
+	
 
 	return result;
 }

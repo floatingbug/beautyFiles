@@ -50,7 +50,16 @@ const inputFieldData = ref([
         icon: "pi pi-calendar",
 		input: "",
 		type: "string",
-    }
+    },
+	{
+		label: "Kundengruppe",
+		id: "kundengruppe",
+		icon: "pi pi-users",
+		type: "menu",
+		options: ["Neukunde", "Stammkunde", "VIP"],
+		currValue: "Neukunde",
+		isEditing: false,
+	},
 ]);
 
 
