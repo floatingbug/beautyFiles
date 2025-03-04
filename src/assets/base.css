@@ -1,0 +1,7 @@
+:root {
+	--card-bg-glass: rgb(from var(--p-primary-color) r g b / 20%);
+}
+
+.dark {
+	
+}

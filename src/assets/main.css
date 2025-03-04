@@ -1,0 +1,28 @@
+@import './base.css';
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: 100 900; /* Variable Schrift von dünn (100) bis fett (900) */
+    font-stretch: 75% 125%; /* Falls Breitenvariationen unterstützt werden */
+    font-style: normal;
+}
+
+/* Schriftart auf der Website verwenden */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400; /* Standardgewicht */
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+
+.card-glass {
+	border-radius: var(--p-border-radius-lg);
+	border: 1px solid var(--p-content-border-color);
+	background-color: var(--card-bg-glass);
+	backdrop-filter: blur(8px);
+}
