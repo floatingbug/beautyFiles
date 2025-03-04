@@ -91,6 +91,10 @@ async function changeEntry(param){
 		return console.log(result.errors);
 	}
 
+	protocolDataCopy.value.forEach(innerArray => {
+		innerArray.forEach(obj => obj.isEditing = false);
+	});
+
 	emit("protocolData:action", {
 		action: "changes",
 		data: {
