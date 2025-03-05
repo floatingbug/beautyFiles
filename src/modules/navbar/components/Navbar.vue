@@ -24,6 +24,7 @@ import {ref} from "vue";
 .navbar-container {
 	width: 100%;
 	height: 100px;
+	position: fixed;
 	display: flex;
 	justify-content: center;
 	align-items: center;

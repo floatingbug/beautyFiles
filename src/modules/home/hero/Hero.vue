@@ -36,7 +36,7 @@ import {device} from "@/composables/device.js";
 <style scoped>
 .welcome-container {
 	max-width: 1200px;
-	height: 90%;
+	height: 100dvh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -64,7 +64,7 @@ import {device} from "@/composables/device.js";
 }
 
 .sign-content {
-	height: 100%;
+	height: 80%;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -99,16 +99,24 @@ import {device} from "@/composables/device.js";
 		h2 {
 			font-size: 2rem;
 		}
-		
-		Button:last-of-type {
-		}
 	}
 }
 
 @media(min-width: 768px) {
+	.welcome-container {
+		width: 90%;
+		height: 80%;
+	}
+
 	.welcome-text-container {
 		h1 {
 			font-size: 4rem;
+		}
+	}
+	
+	.sign-content {
+		h2 {
+			font-size: 3rem;
 		}
 	}
 }
@@ -121,10 +129,5 @@ import {device} from "@/composables/device.js";
 		padding: 8rem;
 	}
 
-	.sign-content {
-		h2 {
-			font-size: 3rem;
-		}
-	}
 }
 </style>

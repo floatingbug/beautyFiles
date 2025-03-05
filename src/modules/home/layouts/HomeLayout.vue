@@ -22,6 +22,10 @@ import Hero from "../hero/Hero.vue";
 }
 
 .hero-container {
-	margin-top: 10rem;
+	height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 </style>

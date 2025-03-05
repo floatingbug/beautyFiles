@@ -72,20 +72,22 @@ async function submitCustomer(){
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding-bottom: 4rem;
 
 	h1 {
 		text-align: center;
-		margin-top: 8rem;
+		margin-top: 5rem;
 	}
 }
 
 .add-customer-content {
 	width: 90%;
+	max-width: 1024px;
 	height: 80%;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	margin-top: 4rem;
+	margin-top: 2rem;
 }
 
 .data-container {
@@ -109,4 +111,6 @@ async function submitCustomer(){
 		font-size: 1.2rem;
 	}
 }
+
+
 </style>
